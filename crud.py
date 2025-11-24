@@ -1,10 +1,11 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
-from model import db, User
 from flask_sqlalchemy import SQLAlchemy
+from models import db, User
 
-app = Flask(__name__, template_folder="web")
+app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://postgres:4951249@localhost/caregiver"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
