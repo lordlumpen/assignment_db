@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from model import db, User
+from models import db, User
 
 app = Flask(__name__)
 
